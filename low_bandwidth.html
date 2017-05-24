@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Low BandWidth Page</title>
+    <script type="text/javascript">
+        var loadStartTime = new Date().getTime();
+        var loadEndTime;
+        // A timer function set to wait 5 seconds
+        var newDiv = window.setTimeout(showLowBandDiv, 5000);
+        // Lets check if Basic DOM is loaded
+        var loadStart = window.addEventListener("DOMContentLoaded",function(event){
+            //Console demo code starts
+            console.log("Basis Dom is Loaded @: "+loadStartTime);
+            //Console demo ends
+        });
+        // Lets check if Complete DOM with all resources is loaded
+        var loadEnds = window.addEventListener("load",function(event){
+            loadEndTime = new Date().getTime();
+            //Console demo code starts
+            console.log("The Dom with all resources is loaded @:"+loadEndTime);
+            var netLoadTime = loadEndTime - loadStartTime;
+            console.info("Net Load time is: "+netLoadTime);
+            // Console demo ends
+        });
+
+        function showLowBandDiv(){
+            var nowTimeIs = new Date().getTime();
+            var timeDiff = nowTimeIs-loadStartTime;
+            if ( loadEndTime ){
+                //Console demo code starts
+                console.info("Waited for: "+timeDiff);
+                //Console demo ends
+                //Do Nothing in real life scenario as bandwidth is good - below code is only for demo.
+                document.getElementById('lowBand').innerHTML = "Bandwidth is good !";
+            }
+            else {
+                //Console demo code starts
+                console.info("Waited for: "+timeDiff);
+                //Console demo ends
+                //Suggest user with alternative link with low bandwidth ( Or you can default redirect to low bandwidth page)
+                document.getElementById('lowBand').innerHTML = "<a href='low_bandwidth.html'> Low bandwidth detected - Link to low bandwidth Page. </a>";
+            }
+        }
+    </script>
+    <style>
+        .noticeBox {width:100%; border:1px dashed blue; color:blue; font:1.5em;text-align: center; padding:10px 0;}
+        .noticeBox a{color:red; font:1.5em; text-decoration:underline;}
+    </style>
+
+</head>
+
+
+<body>
+<div id="lowBand" class="noticeBox">Checking Bandwidth...</div>
+<h2 class="fancy">A Sample Page with < 1 MB of Data
+</h2>
+
+<div class="meta">Posted November 15, 2016 by <a href="https://profiles.wordpress.org/matt">Matt Mullenweg</a>. Filed under <a href="https://wordpress.org/news/category/wordcamp/" rel="category tag">WordCamp</a>. </div>
+<div class="storycontent">
+    <p><img class="aligncenter" src="https://i0.wp.com/wpdotorg.files.wordpress.com/2008/07/27492741871_c6fcebcad3_k-e1479248587522.jpg?resize=632%2C253&amp;ssl=1" width="632" height="253"></p>
+    <p>The title says it all. We had some great applications for cities to host <a href="http://us.wordcamp.org/">WordCamp US</a> after we finish up in Philadelphia this year, and the city chosen for 2017-2018 is <strong>Nashville, Tennessee</strong>.</p>
+    <p>Based on the other great applications we got I’m also excited about the pipeline of communities that could host it in future years as WordCamp US travels across the United States and gives us an opportunity to learn and love a new city, as we have with Philadelphia.</p>
+    <p>By the way, if you haven’t yet, now is a great time to <a href="https://wordpressdotorg.polldaddy.com/s/wordpress-2016-survey">take the Annual WordPress Survey</a> and ask your friends to as well.</p>
+    <p><a href="https://www.flickr.com/photos/143951935@N07/27492741871">Photo Credit</a>.</p>
+    <div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-4571" class="share-twitter sd-button share-icon" href="https://wordpress.org/news/2016/11/wordcamp-us-2017-2018-in-nashville/?share=twitter&amp;nb=1" target="_blank" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-4571" class="share-facebook sd-button share-icon" href="https://wordpress.org/news/2016/11/wordcamp-us-2017-2018-in-nashville/?share=facebook&amp;nb=1" target="_blank" title="Click to share on Facebook"><span>Facebook<span class="share-count">66</span></span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-4571" class="share-google-plus-1 sd-button share-icon" href="https://wordpress.org/news/2016/11/wordcamp-us-2017-2018-in-nashville/?share=google-plus-1&amp;nb=1" target="_blank" title="Click to share on Google+"><span>Google</span></a></li><li class="share-email share-service-visible"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon" href="https://wordpress.org/news/2016/11/wordcamp-us-2017-2018-in-nashville/?share=email&amp;nb=1" target="_blank" title="Click to email this to a friend"><span>Email</span></a></li><li class="share-end"></li></ul></div></div></div><div class="sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-loaded" id="like-post-wrapper-14607090-4571-582bb24bb138c" data-src="//widgets.wp.com/likes/#blog_id=14607090&amp;post_id=4571&amp;origin=wordpress.org&amp;obj_id=14607090-4571-582bb24bb138c" data-name="like-post-frame-14607090-4571-582bb24bb138c"><h3 class="sd-title">Like this:</h3><div class="likes-widget-placeholder post-likes-widget-placeholder" style="height: 55px; display: none;"><span class="button"><span>Like</span></span> <span class="loading">Loading...</span></div><div class="post-likes-widget jetpack-likes-widget" name="like-post-frame-14607090-4571-582bb24bb138c" height="55px" width="100%" frameborder="0" src="//widgets.wp.com/likes/#blog_id=14607090&amp;post_id=4571&amp;origin=wordpress.org&amp;obj_id=14607090-4571-582bb24bb138c"></div><span class="sd-text-color"></span><a class="sd-link-color"></a></div></div>
+<h2 class="fancy"><a href="https://wordpress.org/news/2016/11/wordpress-4-7-beta-3/">WordPress 4.7 Beta 3</a></h2>
+
+<div class="meta">Posted November 11, 2016 by <a href="https://profiles.wordpress.org/helen">Helen Hou-Sandi</a>. Filed under <a href="https://wordpress.org/news/category/development/" rel="category tag">Development</a>, <a href="https://wordpress.org/news/category/releases/" rel="category tag">Releases</a>. </div>
+<div class="storycontent">
+    <p>WordPress 4.7 Beta 3 is now available!</p>
+    <p><strong>This software is still in development,</strong> so we don’t recommend you run it on a production site. Consider setting up a test site just to play with the new version. To test WordPress 4.7, try the <a href="https://wordpress.org/plugins/wordpress-beta-tester/">WordPress Beta Tester</a> plugin (you’ll want “bleeding edge nightlies”). Or you can <a href="https://wordpress.org/wordpress-4.7-beta3.zip">download the beta here</a> (zip).</p>
+    <p>For more information on what’s new in 4.7, check out the&nbsp;<a href="https://wordpress.org/news/2016/10/wordpress-4-7-beta-1/">Beta 1</a> and <a href="https://wordpress.org/news/2016/11/wordpress-4-7-beta-2/">Beta 2</a> blog posts, along with <a href="https://make.wordpress.org/core/tag/4-7+dev-notes/">in-depth field guides on make/core</a>. Some of the changes in Beta 3 include:</p>
+    <ul>
+        <li><strong>REST API:</strong> The <code>unfiltered_html</code> capability is now respected and <code>rest_base</code> has been added to response objects of <code>wp/v2/taxonomies</code> and <code>wp/v2/types</code>, while <code>get_allowed_query_vars()</code> and the <code>rest_get_post</code> filter have been removed.</li>
+        <li><strong>Roles/Capabilities:</strong> Added meta-caps for comment, term, and user meta, which are currently only used in the REST API.</li>
+        <li><strong>I18N:</strong> Added the ability to change user’s locale back to site’s locale. (<a href="https://core.trac.wordpress.org/ticket/38632">#38632</a>)</li>
+        <li><strong>Custom CSS:</strong> Renamed the <code>unfiltered_css</code> meta capability to <code>edit_css</code> and added revisions support to the <code>custom_css</code> post type.</li>
+        <li><strong>Edit shortcuts:</strong> Theme authors should take a look at <a href="https://make.wordpress.org/core/2016/11/10/visible-edit-shortcuts-in-the-customizer-preview/">the developer guide to the customizer preview’s visible edit shortcuts</a> and update their themes to take advantage of them if not already implementing selective refresh.</li>
+        <li><strong>Various bug fixes:</strong> We’ve made <a href="https://core.trac.wordpress.org/log/trunk/src?action=stop_on_copy&amp;mode=stop_on_copy&amp;rev=39200&amp;stop_rev=39143&amp;limit=200&amp;verbose=on&amp;sfp_email=&amp;sfph_mail=">over 50 changes</a> in the last week.</li>
+    </ul></body>
+
+</html>
